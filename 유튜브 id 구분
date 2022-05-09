@@ -1,0 +1,17 @@
+#video 링크 주소가 shorts로 인해 종류가 두 가지가 있다.
+
+# https://www.youtube.com/watch?v= 'video id' 가 기본 주소이다.
+
+# video id 자리에 id가 들어가면 영상이든 쇼츠든 잘 재생이 된다.
+
+# 그러나 이전 크롤링으로 수집한 id는 쇼츠랑 영상 구분이 되어 쇼츠 영상은 제대로 수집이 되지 않았다.
+
+# https://www.youtube.com/shorts/ 'video id' 이런 형태로 존재하여 split으로 뒤에 id만 추출!
+
+video = []
+
+for i in data.video_id:
+    try:
+        video.append(i.split('=')[1])
+    except:
+        video.append(i.split('/')[2])
